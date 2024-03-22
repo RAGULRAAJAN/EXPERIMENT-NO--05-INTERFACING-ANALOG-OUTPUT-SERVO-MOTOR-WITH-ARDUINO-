@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 22.03.2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: RAGUL RAAJAN T
+###  ROLL NO : 212223100043
+###  DEPARTMENT: COMPUTER SCIENCE AND ENGINEERING [CYBER SECURITY]
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -31,35 +31,29 @@ Servo motors are used for angular positioning, such as in radio control airplane
 
 
 
-#### Figure-01 SERVO MOTOR SPLIT VIEW 
+#### SERVO MOTOR SPLIT VIEW 
 Control 
 An external controller (such as the Arduino) tells the servo where to go with a signal know as pulse proportional modulation (PPM) or pulse code modulation (which is often confused with pulse width modulation, PWM). PWM uses 1 to 2ms out of a 20ms time period to encode its information.
  
  
  ![image](https://user-images.githubusercontent.com/36288975/163544482-3027136f-7135-4f3d-a23f-8dc2fe04194d.png)
 
-### Figure-02 SERVO MOTOR PINS
+### SERVO MOTOR PINS
 
  ![image](https://user-images.githubusercontent.com/36288975/163544513-ca497421-e6ba-4f91-871f-5cfba77f22a8.png)
 
 
-### Figure-03 SERVO MOTOR OVERVIEW 
-
- 
-
-
- 
-
-
-
-
-
+###  SERVO MOTOR OVERVIEW 
 CIRCUIT DIAGRAM
  
  
  ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
 
-### FIGURE 04 CIRCUIT DIAGRAM
+### CIRCUIT DIAGRAM
+![Screenshot 2024-03-22 102101](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/aa84e1cb-dc5b-4cd8-9343-f31cc37c7717)
+
+### SCHEMATIC-DIAGRAM
+![Screenshot 2024-03-22 103254](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/31985f28-fc03-4552-af5a-4c15a9e71780)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -76,11 +70,58 @@ CIRCUIT DIAGRAM
 ### PROGRAM :
  
 
+```
+#include<Servo.h>
+Servo sr1;
+int pos=0;
+int red=9;
+int green=8;
 
+void setup()
+{
+  sr1.attach(6);
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+  
+}
 
+void loop()
+{
+  for(pos=0;pos<=180;pos+=5)
+  {
+    sr1.write(pos);
+      delay(200);
+    Serial.println(pos);
+  }
+    
 
+  if(pos>=120)
+  {
+    digitalWrite(red,HIGH);
+      delay(200);
+    digitalWrite(red,LOW);
+      delay(200);
+  }
+  else
+  {
+    digitalWrite(green,HIGH);
+      delay(200);
+    digitalWrite(green,LOW);
+      delay(200);
+    
+  }
+   for(pos=180;pos>=0;pos-=5)
+ {
+    sr1.write(pos);
+       delay(200);
+    Serial.println(pos);
+ }
+  
 
+}
 
+```
 
 
 

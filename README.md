@@ -50,10 +50,13 @@ CIRCUIT DIAGRAM
  ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
 
 ### CIRCUIT DIAGRAM
-![Screenshot 2024-03-22 102101](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/aa84e1cb-dc5b-4cd8-9343-f31cc37c7717)
+![Screenshot 2024-03-22 104310](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/c546e89f-9a9a-464a-b888-aa926d67caef)
 
 ### SCHEMATIC-DIAGRAM
-![Screenshot 2024-03-22 103254](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/31985f28-fc03-4552-af5a-4c15a9e71780)
+![Screenshot 2024-03-22 103702](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/f5456e47-bc11-4e3b-bb48-797a9e8594cf)
+### GRAPHICAL REPRESENTATION:
+![Screenshot 2024-03-22 104723](https://github.com/RAGULRAAJAN/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/147473144/67ecc11b-d906-46c0-9d48-de047eae2533)
+
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -93,17 +96,22 @@ void loop()
     sr1.write(pos);
       delay(200);
     Serial.println(pos);
-  }
-    
-
-  if(pos>=120)
+    if(pos>=120)
   {
     digitalWrite(red,HIGH);
       delay(200);
     digitalWrite(red,LOW);
       delay(200);
   }
-  else
+  }
+    
+
+   for(pos=180;pos>=0;pos-=5)
+ {
+    sr1.write(pos);
+       delay(200);
+     Serial.println(pos);
+      if(pos<=100)
   {
     digitalWrite(green,HIGH);
       delay(200);
@@ -111,16 +119,10 @@ void loop()
       delay(200);
     
   }
-   for(pos=180;pos>=0;pos-=5)
- {
-    sr1.write(pos);
-       delay(200);
-    Serial.println(pos);
  }
   
 
 }
-
 ```
 
 
